@@ -1,0 +1,155 @@
+<div *ngIf="!keinWeg">
+  <div *ngIf="!ergAnzeigen && !letzteFrageErreicht">
+    <div class="mydiv1">
+      <div class="mydiv2">Vorbereitung auf die LPIC-101 Zertifizierung</div>
+      <br />
+      <div class="mydiv3">Voll-Prüfmodus</div>
+      <br />
+      <countdown [config]="{ leftTime: 180 }"></countdown>
+      <div class="mydiv4">
+        <div class="content">
+          <div class="header">
+            Frage {{ frage.id }} von {{ fragenliste.length }}
+          </div>
+          <br />
+          <div *ngIf="frage.id">{{ frage.fragentext }}</div>
+          <br />
+          <div *ngFor="let ans of frage.antworten">
+            <span *ngIf="lernenFlag">
+              <input
+                *ngIf="lernenFlag && ans.gebAntwort"
+                type="checkbox"
+                disabled
+                checked
+              />
+              <input
+                *ngIf="lernenFlag && !ans.gebAntwort"
+                type="checkbox"
+                disabled
+              />
+
+              <span *ngIf="ans.richtig" class="ansgreen">
+                {{ ans.antwort }}</span
+              >
+              <span
+                *ngIf="ans.richtig == false && ans.gebAntwort == true"
+                class="ansred"
+              >
+                {{ ans.antwort }}</span
+              >
+              <span *ngIf="ans.richtig == false && ans.gebAntwort == false">
+                {{ ans.antwort }}</span
+              >
+            </span>
+
+            <span *ngIf="!lernenFlag">
+              <input
+                *ngIf="ans.gebAntwort"
+                type="checkbox"
+                (change)="ans.gebAntwort = !ans.gebAntwort"
+                checked
+              />
+              <input
+                *ngIf="!ans.gebAntwort"
+                type="checkbox"
+                (change)="ans.gebAntwort = !ans.gebAntwort"
+              />
+
+              <span *ngIf="ans.gebAntwort">
+                <span *ngIf="ans.richtig" class="ansgreen">
+                  {{ ans.antwort }}</span
+                >
+                <span *ngIf="!ans.richtig" class="ansred">
+                  {{ ans.antwort }}</span
+                >
+              </span>
+              <span *ngIf="!ans.gebAntwort"> {{ ans.antwort }}</span>
+            </span>
+          </div>
+        </div>
+      </div>
+      <div class="mydiv10">
+        <button (click)="anfang()">Erste Frage</button>
+        <button (click)="v_frage()">Vorherige Frage</button>
+        <button (click)="n_frage()">Nächste Frage</button>
+        <button (click)="ende()">Letzte Frage</button>
+      </div>
+    </div>
+  </div>
+  <div *ngIf="letzteFrageErreicht">
+    <div class="mydiv1">
+      <div class="mydiv2">Vorbereitung auf die LPIC-101 Zertifizierung</div>
+      <br />
+      <div class="mydiv3">Voll-Prüfmodus</div>
+      <br />
+      <div class="mydiv4">
+        <p>
+          Hallo, letzte Frage ist bearbeitet. Checken der Antworten mit "Zurück"
+          oder Prüfung beenden mit "Ergebnisanzeige"
+        </p>
+
+        <button
+          (click)="letzteFrageErreicht = !letzteFrageErreicht"
+          class="ui red basic button"
+        >
+          Zurück
+        </button>
+        <button
+          (click)="letzteFrageErreicht = !letzteFrageErreicht; ergebnis()"
+          class="ui red basic button"
+        >
+          Ergebnisanzeige
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="ergAnzeigen">
+    <div class="mydiv1">
+      <div class="mydiv2">Vorbereitung auf die LPIC-101 Zertifizierung</div>
+      <br />
+      <div class="mydiv3">Voll-Prüfmodus</div>
+      <div class="mydiv4">
+        <br />
+        <h4>Richtig beantworteter Frage {{ anzRiBeFr }}</h4>
+        <h4>Falsch beantworteter Frage {{ anzFaBeFr }}</h4>
+        <h4>Nicht beantworteter Frage {{ anzUnBeFr }}</h4>
+        <br />
+        <button routerLink="/home" class="ui blau basic button">
+          Beenden => HOME
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="keinWeg">
+  <div class="mydiv1">
+    <div class="mydiv2">Vorbereitung auf die LPIC-101 Zertifizierung</div>
+    <br />
+    <div class="mydiv3">Voll-Prüfmodus</div>
+    <br />
+    <countdown [config]="{ leftTime: 180 }"></countdown>
+    <div class="mydiv4">
+      <br />
+      <div class="ddd">
+        Die Prüfung ist beendet. Sie haben {{ anzahlFragenFehler }} Fragen
+        falsch beantwortet!
+      </div>
+      <br />
+
+      <button (click)="ergebnis()" class="ui primary button">Ergebnis</button
+      ><br />
+      <div *ngIf="ergAnzeigen">
+        <h4>Richtig beantworteter Frage {{ anzRiBeFr }}</h4>
+        <h4>Falsch beantworteter Frage {{ anzFaBeFr }}</h4>
+        <h4>Nicht beantworteter Frage {{ anzUnBeFr }}</h4>
+      </div>
+    </div>
+    <br />
+    <a class="ui button" tabindex="0" routerLink="/fragen/0">Lernmodus</a>
+    <button class="ui button" tabindex="0" routerLink="/home">
+      Abbruch => HOME
+    </button>
+  </div>
+</div>

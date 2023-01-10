@@ -1,0 +1,15 @@
+<div class="mydiv1">
+  <div class="mydiv2">Vorbereitung auf die LPIC-101 Zertifizierung</div>
+  <br />
+  <div class="mydiv3">Frageliste</div>
+
+  <div style="text-align: left">
+    <app-frage-list-item
+      class="item"
+      *ngFor="let i of fragenliste"
+      [inputFrage]="i"
+      [routerLink]="i.id - 1"
+    >
+    </app-frage-list-item>
+  </div>
+</div>

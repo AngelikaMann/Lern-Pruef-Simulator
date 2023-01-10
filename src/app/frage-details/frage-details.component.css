@@ -1,0 +1,131 @@
+.done {
+    text-decoration:  line-througt;
+}
+
+.mydiv1 {
+  background-color:#9db5cd;
+  text-align:center;
+  width:1000px;
+  height:600px;
+  border-radius:2%;
+  box-shadow:20px 20px 20px  rgb(85, 116, 128);
+}
+
+.mydiv2 {
+  margin-left:300px; 
+  text-align:center; 
+  width:400px; 
+  height:40px; 
+  padding:10px;
+  border-radius:2%;
+  background-color: white
+}
+.mydiv6 {
+  margin-left:300px; 
+  text-align:center; 
+  width:400px; 
+  height:70px; 
+  padding:10px;
+  border-radius:2%;
+  background-color: white
+}
+
+.mydiv3 {
+  margin-top:5px;
+  margin-left:350px;
+  width:300px;
+  font-size: x-large;
+  padding:15px; 
+  text-align:center; 
+  height:50px;
+  border-radius:2%;
+  background-color:white;
+}
+.a {
+  color: #000;
+  margin-left:50px;
+  width:300px;
+  font-size: x-large;
+  padding:15px; 
+  text-align:center; 
+  height:50px;
+  border-radius:2%;
+
+  background-color:white;
+}
+
+.mydiv4 {
+  margin-top:25px;
+  margin-left:150px;
+  text-align:left; 
+  width:700px;
+  font-size: medium;
+  padding:10px; 
+  height:230px; 
+  border-radius:2%;
+  background-color:white;
+ }
+ .mydir5 {
+  margin-top:5px;
+  margin-left:325px; 
+  width:350px;
+  font-size: x-large; 
+  padding:15px; 
+  text-align:center; 
+  height:70px; 
+  border-radius:2%; 
+  background-color:white;
+ }
+  
+ .mydiv10 {
+  margin-top:25px;
+  margin-left:150px;
+  text-align:left; 
+  width:700px;
+  font-size: medium;
+  padding:10px; 
+  height:80px; 
+  border-radius:2%;
+  background-color:rgb(85, 116, 128);
+ }
+
+ .ncanstrue {
+  color: green;
+}
+.ncansfalse {
+  color: red;
+}
+
+.ansgreen {
+  color: green;
+}
+.ansred {
+  color: red;
+}
+
+
+.mydiv9 {
+ margin-top:25px;
+ margin-left:150px;
+ text-align:left; 
+ width: 700px;
+ font-size: medium;
+ padding:10px; 
+ height:40px; 
+ border-radius:2%;
+ background-color:rgb(255, 255, 255);
+}
+
+.mydiv8 {
+  margin-top:25px;
+  margin-left:150px;
+  text-align:left; 
+  width: 700px;
+  font-size: medium;
+  padding:10px; 
+  height:40px; 
+  border-radius:2%;
+  background-color:rgb(255, 255, 255);
+ }
+
+ 

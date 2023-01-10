@@ -1,0 +1,72 @@
+<div *ngIf="!ergAnzeigen">
+  <div class="mydiv1">
+    <div class="mydiv2">Vorbereitung auf die LPIC-101 Zertifizierung</div>
+    <br />
+    <div class="mydiv3">Teil-Prüfmodus</div>
+
+    <div class="mydiv4">
+      <div class="content">
+        <div class="header">
+          Frage {{ frage.id }} von {{ fragenliste.length }}
+        </div>
+        <br />
+        <div *ngIf="frage.id">{{ frage.fragentext }}</div>
+        <br />
+        <div>
+          <div *ngFor="let abc of frage.antworten">
+            <input
+              type="checkbox"
+              name="{{ antwort }}"
+              (change)="abc.gebAntwort = !abc.gebAntwort"
+            />
+            <span *ngIf="toggel">
+              <span *ngIf="toggel && abc.richtig" class="ncanstrue">
+                {{ abc.antwort }}
+              </span>
+              <span *ngIf="toggel && abc.richtig == false" class="ncansfalse">
+                {{ abc.antwort }}
+              </span>
+            </span>
+            <span *ngIf="!toggel"> {{ abc.antwort }}> </span><br />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mydiv10">
+      <button (click)="anfang()">Erste Frage</button>
+      <button [disabled]="frage.id == 1" (click)="v_frage()">
+        Vorherige Frage
+      </button>
+      <button [disabled]="frage.id == fragenliste.length" (click)="n_frage()">
+        Nächste Frage
+      </button>
+      <button (click)="ende()">Letzte Frage</button>
+      <button (click)="ergebnis()">Bewertung anzeigen</button>
+      <button (click)="ergebnisFrage()">Frage prüfen</button>
+    </div>
+
+    <div *ngIf="ergFrageAnzeigen">
+      <div *ngIf="frageNichtBeant()">Frage nicht beantwortet:</div>
+      <div class="mydiv11" *ngIf="fr_Fal_Beant()" this.feetFlag="true">
+        Frage ist falsch beantwortet! Wiederholen Sie bitte Lernmodus!!!
+      </div>
+      <div *ngIf="frageRichtigBeant()">Frage ist richtig beantwortet</div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="ergAnzeigen">
+  <div class="mydiv1">
+    <div class="mydiv2">Vorbereitung auf die LPIC-101 Zertifizierung</div>
+    <br />
+    <div class="mydiv3">Teil-Prüfmodus</div>
+    <div class="mydiv4">
+      <br />
+      <h4>Richtig beantworteter Frage {{ anzRiBeFr }}</h4>
+      <h4>Falsch beantworteter Frage {{ anzFaBeFr }}</h4>
+      <h4>Nicht beantworteter Frage {{ anzUnBeFr }}</h4>
+      <br />
+      <button (click)="ergebnis()">Zurück</button>
+    </div>
+  </div>
+</div>

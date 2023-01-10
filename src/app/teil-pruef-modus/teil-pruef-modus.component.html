@@ -1,0 +1,90 @@
+<!-- <div *ngIf="!ergAnzeigen">
+  <h4>Frage {{ frage.id }}</h4>
+
+  {{ frage.fragentext}}
+  <div *ngFor="let ans of frage.antworten">
+    <span *ngIf="lernenFlag">
+      <input *ngIf="lernenFlag && ans.gebAntwort" type="checkbox" disabled checked>
+      <input *ngIf="lernenFlag && !ans.gebAntwort" type="checkbox" disabled>
+
+      <span *ngIf="ans.richtig" class="ansgreen">
+        {{ ans.antwort}}</span>
+      <span *ngIf="ans.richtig==false && ans.gebAntwort==true" class="ansred">
+        {{ ans.antwort}}</span>
+      <span *ngIf="ans.richtig==false && ans.gebAntwort==false">
+        {{ ans.antwort}}</span>
+    </span>
+
+    <span *ngIf="!lernenFlag">
+      <input *ngIf="ans.gebAntwort" type="checkbox" (change)="ans.gebAntwort=!ans.gebAntwort" checked>
+      <input *ngIf="!ans.gebAntwort" type="checkbox" (change)="ans.gebAntwort=!ans.gebAntwort">
+
+      <span *ngIf="ans.gebAntwort">
+        <span *ngIf="ans.richtig" class="ansgreen">
+          {{ ans.antwort}}</span>
+        <span *ngIf="!ans.richtig" class="ansred">
+          {{ ans.antwort}}</span>
+      </span>
+      <span *ngIf="!ans.gebAntwort">
+        {{ ans.antwort}}</span>
+    </span>
+  </div>
+  <br>
+  <br>
+
+  <div *ngIf="ergFrageAnzeigen">
+    <div *ngIf="frageNichtBeant()">
+      Frage nicht beantwortet:
+    </div>
+    <div *ngIf="fr_Fal_Beant()">
+      Frage falsch beantwortet: ja
+    </div>
+    <div *ngIf="frageBeant()">
+      Frage beantwortet: ja
+    </div>
+    <div *ngIf="frageRichtigBeant()">
+      Frage richtig beantwortet: ja
+
+
+    </div>
+  </div>
+
+  <br>
+  <button (click)="v_frage()">zurück</button>
+  <button (click)="lernen()">lernen</button>
+  <button (click)="n_frage()">weiter</button>
+  <br>
+
+  <button (click)="anfang()">Anfang</button>
+  <button (click)="ende()">Ende</button>
+  <button (click)="ergebnis()">Ergebnis</button>
+  <br>
+  <button (click)="ergebnisFrage()">Ergebnis Frage</button>
+  <br>
+
+  <span *ngIf="lernenFlag">
+    Lösungen werden angezeigt:
+    <br>
+  </span>
+</div>
+
+
+<div *ngIf="ergAnzeigen">
+
+  // anzahl Fragen
+  // anzahl unbeantworteter Fragen
+  // Anzahl beantworteter Fragen
+  // Anzahl falsch beantworter Fragen
+  // Anzahl richtig beantworter Fragen
+
+  <h2>Ergebnis</h2>
+  <h3>{{ anzFr }} Fragen insgesamt </h3>
+  <h3>{{ anzUnBeFr }} unbeantwortete Fragen: </h3>
+  <h3>{{ anzBeFr }} beantworteter Fragen: </h3>
+  <h3>{{ anzFaBeFr }} falsch beantworteter Fragen: </h3>
+  <h3>{{ anzRiBeFr }} richtig beantworteter Fragen: </h3>
+
+  <button (click)="ergAnzeigen=!ergAnzeigen">Zurück</button>
+
+
+</div> -->
